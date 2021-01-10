@@ -28,11 +28,11 @@
   display: -ms-flexbox;
   display: flex;
 }
-
-@media only screen and (max-width: 375px) {
-  body {
+body {
     overflow-x: hidden;
   }
+@media only screen and (max-width: 375px) {
+  
   .get-started,
   .menu-toggle,
   .menu-hide {
