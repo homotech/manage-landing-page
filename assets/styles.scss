@@ -1,0 +1,773 @@
+//variables
+$white: #fff;
+// $black: #000;
+$darkblue: hsl(233, 12%, 13%);
+$light-gray: rgba(0, 0, 0, 0.3);
+$light-grayimage: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.3));
+$bright-red: hsl(12, 88%, 59%);
+$bright-redhover: hsla(12, 88%, 59%, 0.671);
+$palered: hsl(13, 100%, 96%);
+$darkgrayishblue: hsl(227, 12%, 61%);
+$light-gray: hsl(0, 0%, 98%);
+$small: 12px;
+$medium: 14px;
+$big: 16px;
+$bigger: 20px;
+$biggest: 24px;
+//END OF VARIABLES
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  list-style-type: none;
+  box-sizing: border-box;
+  font-family: be vietnam;
+}
+@font-face {
+  font-family: "be vietnam";
+  src: url("./BeVietnam-Regular.woff") format("woff");
+}
+.hero-1 {
+  display: flex;
+}
+@mixin button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+@mixin acretags {
+  text-decoration: none;
+  color: inherit;
+}
+@mixin removed {
+  display: none;
+}
+@mixin getStarted {
+  @include button;
+  color: $white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  background-color: $bright-red;
+  font-size: $big;
+  font-weight: 900;
+  filter: drop-shadow(-2px 2px 6px $bright-red);
+  transition: 0.3s all;
+  &:hover {
+    background-color: $bright-redhover;
+    filter: drop-shadow(-2px 2px 6px $bright-redhover);
+  }
+}
+.hero-footer {
+  background-color: $darkblue;
+  display: flex;
+}
+@media only screen and (max-width: 375px) {
+  body {
+    overflow-x: hidden;
+  }
+  // hidden items
+  .get-started,
+  .menu-toggle,
+  .menu-hide {
+    @include removed;
+  }
+  .background {
+    position: absolute;
+    top: -300px;
+    left: 50px;
+    z-index: -1;
+    // width: 100%;
+    img {
+      //   width: 100%;
+    }
+  }
+  .main-wrapper {
+    .navbar {
+      padding: 20px;
+      .logo {
+        display: flex;
+        .image {
+          flex: 4;
+          display: flex;
+        }
+        .button {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 2;
+          button {
+            @include button;
+            background-color: transparent;
+            img {
+              @include button;
+            }
+          }
+        }
+      }
+      .menu-items {
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-image: $light-grayimage;
+        ul {
+          background-color: $white;
+          width: 90%;
+          margin: 100px auto;
+          padding: 20px;
+          text-align: center;
+          filter: drop-shadow(-3px 3px 10px rgba(0, 0, 0, 0.3));
+          li {
+            padding: 10px;
+            a {
+              display: block;
+              font-weight: bold;
+              @include acretags;
+            }
+          }
+        }
+      }
+    }
+    .hero-1 {
+      flex-direction: column-reverse;
+      .hero-image {
+        width: 100%;
+        img {
+          width: 100%;
+        }
+      }
+      .hero-text {
+        h1 {
+          text-align: center;
+          font-size: $biggest + 10px;
+          font-weight: bolder;
+        }
+        p {
+          width: 85%;
+          margin: 0 auto;
+          color: $darkgrayishblue;
+        }
+        .button {
+          width: 100%;
+          padding: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          button {
+            @include getStarted;
+          }
+        }
+      }
+    }
+    .hero-2 {
+      width: 100%;
+      .header {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        h1 {
+          font-weight: bolder;
+          line-height: 3rem;
+        }
+        p {
+          color: $darkgrayishblue;
+          line-height: 1.5rem;
+          font-size: $medium;
+        }
+      }
+      .text-divs {
+        // width: 90%;
+        margin-left: 20px;
+        .texts {
+          margin-top: 20px;
+          h2 {
+            span {
+              background-color: $bright-red;
+              color: $white;
+              height: 100%;
+              display: inline-block;
+              padding: 0 30px;
+              font-size: $bigger;
+              margin-right: 10px;
+              border-radius: 25px;
+            }
+            border-radius: 25px 0 0 25px;
+            background-color: $palered;
+            font-size: $medium;
+            font-weight: bolder;
+            line-height: 3rem;
+          }
+          p {
+            color: $darkgrayishblue;
+            line-height: 2rem;
+            font-size: $small;
+          }
+        }
+      }
+    }
+    .hero-3 {
+      width: 90%;
+      height: 500px;
+      margin: 20px auto 0;
+      position: relative;
+      .header {
+        text-align: center;
+      }
+      .text-and-image {
+        overflow: hidden;
+        width: 100%;
+        .image {
+          position: absolute;
+          top: 5%;
+          left: 35%;
+          img {
+            width: 100px;
+          }
+        }
+        .texts {
+          margin-top: 80px;
+          background-color: $light-gray;
+          padding: 50px 20px 20px 20px;
+          .name {
+            h3 {
+              font-weight: 900;
+              text-align: center;
+              display: block;
+            }
+          }
+          p {
+            text-align: center;
+          }
+        }
+        .text-images {
+          position: absolute;
+        }
+        .activecard {
+          left: 0;
+        }
+        .inactivecard {
+          left: 100%;
+        }
+      }
+      .active {
+        position: relative;
+        top: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          width: 20px;
+          height: 20px;
+          border-radius: 20px;
+          margin: 0 5px;
+          border: 3px solid $bright-red;
+        }
+        .active-div {
+          background-color: $bright-red;
+        }
+      }
+      .button {
+        button {
+          @include getStarted;
+          padding: 7px 15px !important;
+          font-size: $medium;
+          position: absolute;
+          bottom: 15%;
+          left: 30%;
+        }
+      }
+    }
+    .hero-4 {
+      padding: 30px 0;
+      color: $white;
+      overflow: hidden;
+      //   display: flex;
+      //   flex-wrap: wrap;
+      background-color: $bright-red;
+      position: relative;
+      &::before {
+        position: absolute;
+        top: -10%;
+        // left: 20%;
+        width: 100%;
+        content: url("./images/bg-simplify-section-mobile.svg");
+      }
+      .simplify {
+        width: 70%;
+        margin: 0 auto;
+        flex: 1;
+        padding: 10px 20px;
+
+        p {
+          text-align: center;
+          font-size: $biggest;
+          font-weight: bolder;
+        }
+      }
+      .button {
+        width: 60%;
+        flex: 1;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        button {
+          background-color: $white;
+          color: $bright-red;
+          @include button;
+          font-size: $big;
+          font-weight: bolder;
+          padding: 10px 20px;
+          border-radius: 20px;
+          position: relative;
+          //   left: 50%;
+          &:hover {
+            color: $bright-redhover;
+          }
+        }
+      }
+    }
+    .hero-footer {
+      flex-direction: column;
+      .itemone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: 3;
+        flex-direction: column-reverse;
+        .social-logo {
+          // display: flex;
+          // width: 100%;
+          img {
+            // flex: 1;
+            padding: 30px 20px;
+          }
+        }
+      }
+      .itemtwo {
+        order: 2;
+        display: flex;
+        width: 100%;
+        div {
+          // display: flex;
+          padding: 10px;
+          padding-left: 30px;
+          a {
+            color: $white !important;
+            display: block;
+            @include acretags;
+            padding: 5px;
+            text-transform: capitalize;
+          }
+        }
+        .selfone {
+          flex: 1;
+        }
+        .selftwo {
+          flex: 1;
+        }
+      }
+      .itemthree {
+        order: 1;
+        display: flex;
+        padding-top: 20px;
+        div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .input {
+          flex: 2;
+          input {
+            background-color: $white;
+            // @include button;
+            outline: none;
+            border: none;
+            font-size: 15px;
+            padding: 25px 20px;
+            border-radius: 50px;
+            width: 90%;
+          }
+        }
+        .button {
+          flex: 1;
+          button {
+            @include getStarted();
+            // filter: drop-shadow(0, 0, 0, rgba(0, 0, 0, 0)) !important;
+          }
+        }
+      }
+      .itemfour {
+        order: 4;
+        margin-bottom: 20px;
+        p {
+          color: $darkgrayishblue;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+@media only screen and (min-width: 375px) {
+  // hidden items
+  .hamburger,
+  .close {
+    @include removed;
+  }
+  .background {
+    position: absolute;
+    top: -300px;
+    left: 750px;
+    z-index: -1;
+    // width: 100%;
+    img {
+      //   width: 100%;
+    }
+  }
+  .main-wrapper {
+    .navbar {
+      width: 90%;
+      margin: 50px auto;
+      display: flex;
+      flex-direction: row;
+      .logo {
+        flex: 1;
+        // display: flex;
+        .image {
+          padding: 20px;
+          flex: 4;
+          display: flex;
+        }
+        .button {
+          flex: 1;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          z-index: 2;
+          button {
+            @include button;
+            background-color: transparent;
+            img {
+              @include button;
+            }
+          }
+        }
+      }
+      .menu-items {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        ul {
+          display: flex;
+          text-align: center;
+          li {
+            padding: 10px 20px;
+            a {
+              display: block;
+              font-weight: bold;
+              @include acretags;
+              &:hover {
+                color: $darkgrayishblue;
+              }
+            }
+          }
+        }
+      }
+      .get-started {
+        // padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+        button {
+          @include getStarted;
+        }
+      }
+    }
+    .hero-1 {
+      flex-direction: row;
+      margin: 0 auto;
+      width: 80%;
+
+      .hero-image {
+        width: 80%;
+        display: flex;
+        margin-left: auto;
+        // margin: 0 auto;
+        flex: 1.5;
+        img {
+          margin: 0 auto;
+          width: 70%;
+        }
+      }
+      .hero-text {
+        padding: 40px;
+        flex: 1;
+        h1 {
+          font-size: $biggest + 20px;
+          font-weight: bolder;
+          line-height: 3.4rem;
+        }
+        p {
+          color: $darkgrayishblue;
+          margin-top: 20px;
+        }
+        .button {
+          width: 100%;
+          margin-top: 50px;
+          padding: 10px 0;
+          //   display: flex;
+          //   align-items: center;
+          //   justify-content: center;
+          button {
+            @include getStarted;
+          }
+        }
+      }
+    }
+    .hero-2 {
+      width: 100%;
+      display: flex;
+      margin: 0 auto;
+      width: 80%;
+      .header {
+        width: 90%;
+        margin: 0 auto;
+        padding: 20px;
+        h1 {
+          font-weight: bolder;
+          line-height: 3rem;
+        }
+        p {
+          color: $darkgrayishblue;
+          line-height: 1.5rem;
+          font-size: $medium;
+        }
+      }
+      .text-divs {
+        // width: 90%;
+
+        .texts {
+          margin-top: 10px;
+          padding: 10px 40px;
+          h2 {
+            span {
+              background-color: $bright-red;
+              color: $white;
+              height: 100%;
+              display: inline-block;
+              padding: 0 30px;
+              font-size: $bigger;
+              margin-right: 10px;
+              border-radius: 25px;
+            }
+            border-radius: 25px 0 0 25px;
+            background-color: $palered;
+            font-size: $medium;
+            font-weight: bolder;
+            line-height: 3rem;
+          }
+          p {
+            color: $darkgrayishblue;
+            line-height: 2rem;
+            font-size: $small;
+          }
+        }
+      }
+    }
+    .hero-3 {
+      width: 90%;
+      height: 500px;
+      margin: 20px auto;
+      position: relative;
+      .header {
+        text-align: center;
+        margin: 20px;
+      }
+      .text-and-image {
+        // overflow: hidden;
+        display: flex;
+        justify-content: space-around;
+        .text-images {
+          position: relative;
+          width: 22%;
+          filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.1));
+          .image {
+            position: absolute;
+            top: 0;
+            left: 30%;
+            img {
+              filter: drop-shadow(-2px 2px 5px rgba(0, 0, 0, 0.2));
+              width: 100px;
+            }
+          }
+          .texts {
+            border-radius: 10px;
+            margin-top: 80px;
+            background-color: $light-gray;
+            padding: 50px 20px 20px 20px;
+            .name {
+              h3 {
+                font-weight: 900;
+                text-align: center;
+                display: block;
+              }
+            }
+            p {
+              text-align: center;
+            }
+          }
+        }
+      }
+      .active {
+        display: none;
+      }
+      .button {
+        button {
+          @include getStarted;
+          padding: 10px 20px !important;
+          font-size: $medium;
+          position: absolute;
+          bottom: 10%;
+          left: 45%;
+        }
+      }
+    }
+    .hero-4 {
+      padding: 70px 0;
+      color: $white;
+      display: flex;
+      flex-wrap: wrap;
+      background-color: $bright-red;
+      position: relative;
+      overflow: hidden;
+      &::before {
+        position: absolute;
+        top: -80%;
+        left: 0;
+        width: 100%;
+        content: url("./images/bg-simplify-section-desktop.svg");
+      }
+      .simplify {
+        flex: 1;
+        padding: 10px 20px;
+
+        p {
+          text-align: center;
+          font-size: $biggest;
+          font-weight: bolder;
+        }
+      }
+      .button {
+        flex: 1;
+        position: relative;
+        // display: flex;
+        // align-items: right;
+        // justify-content: right;
+        button {
+          background-color: #fff;
+          color: $bright-red;
+          @include button;
+          font-size: $big;
+          font-weight: bolder;
+          padding: 10px 20px;
+          border-radius: 20px;
+          position: relative;
+          left: 50%;
+          &:hover {
+            color: $bright-redhover;
+          }
+        }
+      }
+    }
+    .hero-footer {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      padding-top: 50px;
+
+      .itemone {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        order: 1;
+        flex-direction: column;
+        width: 20%;
+        .social-logo {
+          // display: flex;
+          // width: 100%;
+          img {
+            // flex: 1;
+            padding: 40px 0;
+          }
+        }
+      }
+      .itemtwo {
+        order: 2;
+        display: flex;
+        width: 40%;
+        div {
+          padding: 10px;
+          a {
+            color: $white !important;
+            display: block;
+            @include acretags;
+            padding: 5px;
+            text-transform: capitalize;
+          }
+        }
+        .selfone {
+          flex: 1;
+        }
+        .selftwo {
+          flex: 1;
+        }
+      }
+      .itemthree {
+        order: 3;
+        width: 40%;
+        display: flex;
+        padding-top: 20px;
+        div {
+          display: flex;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+        .input {
+          flex: 2;
+          input {
+            background-color: $white;
+            @include button;
+            padding: 15px 20px;
+            border-radius: 50px;
+            width: 90%;
+          }
+        }
+        .button {
+          flex: 1;
+          button {
+            @include getStarted();
+            // filter: drop-shadow(0, 0, 0, rgba(0, 0, 0, 0)) !important;
+          }
+        }
+      }
+      .itemfour {
+        order: 4;
+        width: 100%;
+        margin: 10px;
+        p {
+          color: $darkgrayishblue;
+          display: block;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
