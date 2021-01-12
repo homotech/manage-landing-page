@@ -1,5 +1,8 @@
 # Frontend Mentor - Manage landing page
 
+https://homotech.github.io/manage-landing-page/index.html
+
+
 ![Design preview for the Manage landing page coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
